@@ -15,7 +15,20 @@ public class Share_fileDto {
 	private String receiverName;
 	private String fileName;
 	private String location;
-	
+	private List<Long> fileList;
+	private List<Long> departmentList;
+	public List<Long> getDepartmentList() {
+		return departmentList;
+	}
+	public void setDepartmentList(List<Long> departmentList) {
+		this.departmentList = departmentList;
+	}
+	public List<Long> getFileList() {
+		return fileList;
+	}
+	public void setFileList(List<Long> fileList) {
+		this.fileList = fileList;
+	}
 	public long getId() {
 		return id;
 	}

@@ -16,6 +16,7 @@ public interface File_detailsService {
 	public String upload_File(FileUpload uploadedFile,String name);
 	public List<File_detailsDto> own_File();
 	public void save_Share_File(Share_fileDto share_file);
+	public void save_Share_FileDepartment(Share_fileDto share_file);
 	public List<Share_files> receiveShareFile(long id);
 	public List<Share_fileDto> sendedShareFile(long id);
 	public List<NotiDTO> getNotiList(long userId);

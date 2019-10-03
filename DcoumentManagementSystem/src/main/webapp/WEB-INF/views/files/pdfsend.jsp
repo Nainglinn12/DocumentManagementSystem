@@ -6,10 +6,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>pdf view </title>
 </head>
 <body>
-${Name}
+<a href="<c:url value='/myFile.htm' />" class="btn btn-primary px-4">Back</a>
 <div>
 	<object
 		data='<c:url value='${path}'/>'

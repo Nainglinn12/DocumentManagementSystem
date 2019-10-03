@@ -61,14 +61,14 @@ title
 							<th>Action</th>
 						</tr>
 					</thead>
-					<tfoot>
+					<!-- <tfoot>
 						<th>No</th>
 						<th>Sender Name</th>
 						<th>Title</th>
 						<th>Description</th>
 						<th>Send Date</th>
 						<th>Action</th>
-					</tfoot>
+					</tfoot> -->
 					<tbody>
 						<c:forEach var="message" items="${messageList}" varStatus="row">
 							<c:if test="${message.receivedDate eq null }">
@@ -79,8 +79,7 @@ title
 									<td>${message.description }</td>
 									<td>${message.sendDate }</td>
 									<td><a
-										href="<c:url value='/message_detail.htm/${message.id}' />"><i
-											class="fas fa-user-tag"></i></a></td>
+										href="<c:url value='/message_detail.htm/${message.id}' />">View</a></td>
 								</tr>
 							</c:if>
 							<c:if test="${message.receivedDate ne null }">
@@ -101,6 +100,5 @@ title
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>

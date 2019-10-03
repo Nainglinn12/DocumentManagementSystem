@@ -19,16 +19,15 @@
 							<td>Insert For Title</td>
 							<td><div class="custom-file col-sm-6">
 									<form:input type="text" name="text" path="title" width="100%" class="form-control form-control-user"/> 
-										<form:errors
+										<form:errors 
 									path="file" />
 								</div></td>
 						</tr>
 						<tr>
 							<td>Upload File: </td>
 							<td><div class="custom-file col-sm-6">
-									<form:input type="file" class="custom-file-input" id="customFile" path="file"
-										name="file"/> <label class="custom-file-label"
-										for="customFile">Choose file</label>
+									<form:input type="file"  path="file"
+										name="file"/>
 										<form:errors
 									path="file" />
 								</div></td>

@@ -20,9 +20,17 @@
 </head>
 
 <body id="page-top">
+
   <div id="wrapper">
+  
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-      <div style="color: white;text-align: center;">Menu</div>
+		<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Menu</div>
+      </a>
+		
 		<tiles:insertAttribute name="menu" />
     </ul>
     <div id="content-wrapper" class="d-flex flex-column">

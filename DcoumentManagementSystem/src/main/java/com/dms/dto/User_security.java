@@ -40,5 +40,10 @@ public class User_security extends User {
 			this.id=id;
 			// TODO Auto-generated constructor stub
 			}
+	@Override
+	public Collection<GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return super.getAuthorities();
+	}
 
 }

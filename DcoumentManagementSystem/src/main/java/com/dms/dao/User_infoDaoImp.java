@@ -26,7 +26,7 @@ public class User_infoDaoImp implements User_infoDao{
 		// TODO Auto-generated method stub
 		List<User_info> list_user_info=sessionFactory.getCurrentSession().createCriteria(User_info.class).list();
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String username = ((UserDetails)principal).getUsername();
+		String username = ((UserDetails)principal).getName();
 		User_info user_info=findByUserName(username);
 		list_user_info.remove(user_info);		
 		return list_user_info;
@@ -35,14 +35,14 @@ public class User_infoDaoImp implements User_infoDao{
 	public User_info searchUser_info(long  id) {
 		// TODO Auto-generated method stub
 		Session session=sessionFactory.getCurrentSession();
-		User_info search_user_info=(User_info) session.get(User_info.class, id);
+		User_info search_user_info=session.get(User_info.class, id);
 		return search_user_info;
 	}
 
 	public void deleteUser_info(User_info user_info) {
 		// TODO Auto-generated method stub
 		Session session=sessionFactory.getCurrentSession();
-		User_info delete_user_info=(User_info) session.get(User_info.class,user_info.getId());
+		User_info delete_user_info=session.get(User_info.class,user_info.getId());
 		session.delete(delete_user_info);
 		session.flush();
 	}
@@ -87,5 +87,19 @@ public class User_infoDaoImp implements User_infoDao{
 	query.setParameter("id", user_register.getId());
 	int status=query.executeUpdate();
 	System.out.println(status);
+	}
+
+	@Override
+	public List<User_info> searchWithDepartment(long id) {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.getCurrentSession();
+		Criteria cr = session.createCriteria(User_info.class);
+		cr.add(Restrictions.eq("department.id", id));
+		List<User_info> user=cr.list();
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String username = ((UserDetails)principal).getName();
+		User_info user_info=findByUserName(username);
+		user.remove(user_info);		
+		return user;
 	}
 }

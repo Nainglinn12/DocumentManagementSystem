@@ -17,13 +17,10 @@
 	<security:intercept-url pattern="/index.htm" access="permitAll"/>
 	<security:intercept-url pattern="/forgot_password.htm" access="permitAll"/>
  		<security:intercept-url pattern="/webjars/**" access="permitAll"/>
+ 		<security:intercept-url pattern="/user_register.htm" access="permitAll"/>
  		<security:intercept-url pattern="/rolea.htm" access="permitAll"/>
  		<security:intercept-url pattern="/resources/**" access="permitAll"/>
  		<security:intercept-url pattern="/login.htm" access="permitAll"/>
- 		<security:intercept-url pattern="/user_register.htm" access="permitAll"/>
-        <security:intercept-url pattern="/admin/**" access="hasRole('Admin')" />
-         <security:intercept-url pattern="/manager/**" access="hasRole('Manager')" />
-         <security:intercept-url pattern="/member/**" access="hasRole('Member')" />
         <security:intercept-url pattern="/**" access="isFullyAuthenticated()" />
         <security:access-denied-handler error-page="/403.htm"/>
         <security:form-login 

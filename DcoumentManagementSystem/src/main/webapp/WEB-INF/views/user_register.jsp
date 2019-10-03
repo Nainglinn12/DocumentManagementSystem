@@ -15,7 +15,7 @@
 <body>
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
-			<h6 class="m-0 font-weight-bold text-primary">User Register</h6>
+			<h6 class="m-0 font-weight-bold text-primary">Add New User</h6>
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
@@ -29,7 +29,7 @@
 							<label class="control-label col-sm-2">Name</label>
 							<div class="col-sm-5">
 								<form:input type="text" class="form-control form-control-user"
-									id="name" path="name" placeholder="Enter Your name" />
+									id="name" path="name" placeholder="Enter Your name" pattern="([A-Za-z\s]){2,}" title="Must contain only characters"/>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -43,14 +43,14 @@
 							<label class="control-label col-sm-2">Phone Number</label>
 							<div class="col-sm-5">
 								<form:input type="text" class="form-control form-control-user"
-									id="phone" path="phno" placeholder="Enter Your Phone" />
+									id="phone" path="phno" placeholder="Enter Your Phone" pattern="09([0-9]){9}" title="Please check your phone number"/>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="control-label col-sm-2">NRC number</label>
 							<div class="col-sm-5">
 								<form:input type="text" class="form-control form-control-user"
-									id="nrc" path="nrc" placeholder="Enter Your Nrc NO" />
+									id="nrc" path="nrc" placeholder="Enter Your Nrc NO" pattern="([0-9]){1}\/([A-Za-z]){3,}\(N\)([0-9]{6})" title="Please enter nrc number like 9/ThaPaKa(N)067078"/>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -64,14 +64,17 @@
 							<label class="control-label col-sm-2">Email</label>
 							<div class="col-sm-5">
 								<form:input type="text" class="form-control form-control-user"
-									id="email" path="email" placeholder="Enter Your Email Address" />
+									id="email" path="email" placeholder="Enter Your Email Address" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Enter fromat of email"/>
+									<c:if test="${not empty errorMsg}">
+										<font color='red'>${errorMsg}</font>
+									</c:if>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="control-label col-sm-2">Password</label>
 							<div class="col-sm-5">
 								<form:password class="form-control form-control-user"
-									id="password" path="password" placeholder="Enter Your Password" />
+									id="password" path="password" placeholder="Enter Your Password" pattern=".{8,}" title="Password must contain 8 or more characters"/>
 							</div>
 						</div>
 						<div class="form-group row">

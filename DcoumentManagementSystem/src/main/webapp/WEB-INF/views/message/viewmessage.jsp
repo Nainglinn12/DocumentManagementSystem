@@ -50,13 +50,13 @@ here
 				<th>Action</th>
 			</tr>
 		</thead>
-                  <tfoot>
+                  <!-- <tfoot>
                   <th>No</th>
 				<th>Title</th>
 				<th>Description </th>
 				<th>SendDate</th>
 				<th>Action</th>
-                  </tfoot>
+                  </tfoot> -->
                   <tbody>
                     <c:forEach var="message" items="${messageList}" varStatus="row">
 				<tr>

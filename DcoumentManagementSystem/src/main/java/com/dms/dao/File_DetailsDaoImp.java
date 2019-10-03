@@ -86,6 +86,7 @@ public class File_DetailsDaoImp implements File_detailsDao{
 		Criteria cr = session.createCriteria(File_details.class)
 				.createAlias("user_info", "s", JoinType.LEFT_OUTER_JOIN);
 		cr.setProjection(Projections.projectionList()	
+				.add(Projections.property("id"), "id")
 			      .add(Projections.property("name"), "name")
 			      .add(Projections.property("path"),"path")
 			      .add(Projections.property("s.name"),"owner")

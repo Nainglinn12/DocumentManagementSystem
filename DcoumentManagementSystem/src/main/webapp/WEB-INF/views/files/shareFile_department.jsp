@@ -25,24 +25,24 @@
 <body translate="no">
 
 	<form:form
-		action="${pageContext.request.contextPath}/savesharefile.htm"
+		action="${pageContext.request.contextPath}/savesharefile_department.htm"
 		modelAttribute="share_fileDto">
 		<div class="card shadow mb-4">
 			<div class="card-body">
 				<div class="table-responsive">
 					<table class="table table-borderless" id="dataTable" width="100%"
 						cellspacing="0">
-						<tr><td>Choose Name You want to share</td>
+						<tr><td>Choose department You want to share</td>
 						<td >
-										<form:select data-placeholder="Choose user name"
-									path="receiver" name="fileList"
+										<form:select data-placeholder="Choose department name"
+									path="departmentList" name="fileList"
 									class="chosen-select col-sm-12 form-control form-control-user"
 									multiple="multiple">
-									<c:forEach var="user" items="${userList }"
+									<c:forEach var="department" items="${department_list }"
 										varStatus="index">
-										<form:option value="${user.id}">${user.name}</form:option>
+										<form:option value="${department.id}">${department.department}</form:option>
 									</c:forEach>
-									</form:select>
+								</form:select>
 						</td>
 						</tr>
 						<tr>

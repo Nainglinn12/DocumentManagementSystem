@@ -9,9 +9,6 @@
 <body class="bg-gradient-primary">
 	<form action="login.htm" method="post">
 		<div class="container">
-			<c:if test="${param.error != null}">
-				<p>Invalid user name and password.</p>
-			</c:if>
 			<div class="row justify-content-center">
 				<div class="col-xl-5 col-lg-6 col-md-3">
 					<div class="card-group">
@@ -36,14 +33,14 @@
 									</div>
 									<input class="form-control" name="password" type="password"
 										placeholder="Enter Your Password" />
+									
 								</div>
 								<div class="input-group mb-4">
-									<div class="custom-control custom-checkbox small">
-										<input class="custom-control-input" type="checkbox"
-											id="customcheck" /><label class="custom-control-label"
-											id="customcheck">Remember Me</label>
-									</div>
+									<c:if test="${param.error != null}">
+									<font color='red'>Invalid user name and password</font>
+									</c:if>
 								</div>
+								
 								<div class="row">
 									<div class="col-6">
 										<button class="btn btn-primary btn-user btn-block"
@@ -51,8 +48,8 @@
 
 									</div>
 									<div class="col-6 text-right">
-										<a class="small" href='<c:url value='forgot_password.htm'/>'> Forgot
-											password?</a>
+										<a class="small" href='<c:url value='forgot_password.htm'/>'>
+											Forgot password?</a>
 									</div>
 								</div>
 							</div>

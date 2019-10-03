@@ -9,6 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a href="<c:url value='/myFile.htm' />" class="btn btn-primary px-4">Back</a>
+	<div class="container">
 <audio id="myAudio" controls>
 		<source src="<c:url value='${path}' />" type="audio/ogg">
 		<source src="<c:url value='${path}' />" type="audio/mpeg">

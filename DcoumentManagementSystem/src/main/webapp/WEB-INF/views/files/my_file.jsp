@@ -65,7 +65,7 @@ body {
     	<c:if test="${files.type=='mp3'}">
     	<img class="card-img-top" width="161" height="185" src="<c:url value='/resources/icon/audio.jpg'/>" alt="Card image cap">
     	</c:if>
-    	<c:if test="${files.type=='docx'}">
+    	<c:if test="${files.type=='docx'||files.type=='doc'}">
     	<img class="card-img-top" width="161" height="185" src="<c:url value='/resources/icon/word.jpg'/>" alt="Card image cap">
     	</c:if>
     	<c:if test="${files.type=='pdf'}">

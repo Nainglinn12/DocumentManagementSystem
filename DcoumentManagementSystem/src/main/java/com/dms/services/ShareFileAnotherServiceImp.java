@@ -13,15 +13,15 @@ public class ShareFileAnotherServiceImp implements ShareFileAnotherService {
 	@Autowired
 	private ShareFileAnotherDao sharefile;
 	@Override
-	public List<Share_files> shareFile(String userName) {
+	public List<Share_files> shareFile(long userName) {
 		// TODO Auto-generated method stub
 		
 		return sharefile.shareFile(userName);
 	}
 	@Override
-	public List<Share_files> shareFileAnother(String userName) {
+	public List<Share_files> shareFileAnother(long  id) {
 		// TODO Auto-generated method stub
-		return sharefile.shareFileAnother(userName);
+		return sharefile.shareFileAnother(id);
 		}
 
 }

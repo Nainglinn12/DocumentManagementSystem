@@ -1,8 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@page isELIgnored="false"%>
+    pageEncoding="ISO-8859-1"%>  
 <%@ include file="/WEB-INF/views/common/include.jsp"%>
-<div class="card shadow mb-4">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="card shadow mb-4">
 	<div class="card-header py-3">
 		<h6 class="m-0 font-weight-bold text-primary">Received File</h6>
 	</div>
@@ -15,21 +21,21 @@
 							<thead>
 								<tr role="row">
 									<th>No</th>
-									<th>Title</th>
-									<th>File Type</th>
-									<th>Sender</th>
-									<th>Send Date</th>
+									<th>File Extension</th>
+									<th>Folder Name</th>
+									<th>Update</th>
+									<th>Delete</th>
 								</tr>
 							</thead>
 
 							<tbody>
-								<c:forEach var="file" items="${sharefile_list}" varStatus="row">
+								<c:forEach var="fileType" items="${fileTypeList}" varStatus="row">
 									<tr>
 										<td>${row.count }</td>
-										<td>${file.file_detail.title}</td>
-										<td>${file.file_detail.name}</td>
-										<td>${file.file_detail.user_info.name}</td>
-										<td>${file.send_date}</td>
+										<td>${fileType.type}</td>
+										<td>${fileType.name}</td>
+										<td><a href='<c:url value="updateFileType.htm/${fileType.id }"/>'>Update</a></td>
+										<td><a href='<c:url value="deleteFileType.htm/${fileType.id }"/>'>Delete</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -37,3 +43,5 @@
 					</div>
 				</div>
 			</div>
+</body>
+</html>

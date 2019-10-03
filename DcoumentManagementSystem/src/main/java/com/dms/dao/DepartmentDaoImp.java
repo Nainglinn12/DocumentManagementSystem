@@ -18,6 +18,7 @@ public class DepartmentDaoImp implements DepartmentDao{
 	public List<Department> viewAllDepartment() {
 		// TODO Auto-generated method stub
 		List<Department> list_department=sessionFactory.getCurrentSession().createCriteria(Department.class).list();
+		System.out.println(list_department);
 		return list_department;
 	}
 

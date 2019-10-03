@@ -10,6 +10,6 @@
 </head>
 <body>
 <a href="<c:url value='/myFile.htm' />" class="btn btn-primary px-4">Back</a>
-	<iframe src="https://docs.google.com/document/d/1JJXOLN1Ll01TRQQyyHOjy9BrHrNCWV4Jbi7puKA0_gs/edit" style="width:1200px; height:500px;" frameborder="0"></iframe>
+	<iframe src="https://docs.google.com/spreadsheets/d/1yftcmdZ9FSExl0M1TTA2XlM3WTyB57hatyhD7JCtcjM/edit#gid=1395396199" style="width:1100px; height:500px;" frameborder="0"></iframe>
 </body>
 </html>

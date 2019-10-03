@@ -1,9 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="security"
-	uri="http://www.springframework.org/security/tags"%>
 <%@page import="com.dms.services.SecurityUtil"%>
-<h2 style="color: #3b58ed; font-weight: bold;">Document Management
-	System</h2>
+<%@ include file="/WEB-INF/views/common/include.jsp"%>
+<h2 style="color: #3b58ed; font-weight: bold;">Document Management System</h2>
 <!-- o Navbar -->
 <input type="hidden" id="pageContext"
 	value="${pageContext.request.contextPath}" />
@@ -67,9 +65,8 @@
 					var="user" property="principal" /> <security:authorize
 					access="isAuthenticated()">
 
-					<b style="color: #3b58ed;">${user.name } </b></span> <img
-			class="img-profile rounded-circle"
-			src="<c:url value='/resources/profiles/${user.photo}'/>"> </security:authorize>
+					<b style="color: #3b58ed;">${user.name }</b></span> <img
+			class="img-profile rounded-circle" src="<c:url value='/resources/profiles/${user.photo}'/>"> </security:authorize>
 	</a> <!-- Drop down - User Information -->
 		<div
 			class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -90,7 +87,7 @@
 <script src='<c:url value="/resources/vendor/jquery/jquery.min.js" /> '></script>
 <script>
 
-	jQuery(function($) {
+	jQuery( setTimeout(function() {
 		$.ajax({
 			type : "GET",
 			url : $("#pageContext").val() + "/ajax/getNotiList", //this is my servlet
@@ -119,12 +116,12 @@
 					}
 				if(data[i].notitype=="message"){
 					mList+='<a class="dropdown-item d-flex align-items-center" href="<c:url value="/message_detail.htm/'+data[i].id+'"/>"> <div class="dropdown-list-image mr-3">'
-					+'<img class="rounded-circle" src="<c:url value="/resources/data/image/20190724175824sun.jpg"/>" alt="profile">'
+					+'<img class="rounded-circle" src="<c:url value="/resources/profiles/'+data[i].senderName+'"/>" alt="profile">'
 					+'<div class="status-indicator bg-success"></div>'
 					+'</div><div class="font-weight-bold"><div class="text-truncate">'
 					+data[i].title
 					+'</div><div class="small text-gray-500">'
-					+data[i].send_date+'</div></div></a>';
+					+data[i].send_date+data[i].senderName+'</div></div></a>';
 					nMessage+=1;
 				}
 				}
@@ -135,5 +132,5 @@
 				countM.html(nMessage);
 			}
 		});
-	});
+	},3000));
 </script>

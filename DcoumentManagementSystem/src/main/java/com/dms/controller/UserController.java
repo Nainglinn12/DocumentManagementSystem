@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -23,6 +24,7 @@ import com.dms.dao.User_loginDao;
 import com.dms.dto.Change_passwordDto;
 import com.dms.dto.User_profile;
 import com.dms.dto.User_registerDto;
+import com.dms.services.FileTypeServices;
 import com.dms.services.File_detailsService;
 import com.dms.services.User_detailsService;
 
@@ -38,7 +40,8 @@ public class UserController {
 	private User_loginDao user_loginDao;
 	@Autowired
 	private File_detailsService fileService;
-
+	@Autowired
+	private FileTypeServices fileType;
 	@RequestMapping(value="/index.htm")
 	public String LoginSuccess(Model model){
 		User_profile user=user_detailsService.user_profile();
@@ -70,7 +73,7 @@ public class UserController {
 		if(!result.hasErrors()&&error==true) {
 		user_detailsService.saveUser(user_registerDTO);
 		}
-		else {
+		else { model.addAttribute("errorMsg", "Email is Already Exist");
 			model.addAttribute("user_registerDTO",new User_registerDto());
 			model.addAttribute("role_list",roleDao.viewAllRole());
 			model.addAttribute("department_list",departmentDao.viewAllDepartment());
@@ -93,5 +96,13 @@ public class UserController {
 	public String profile(Model model){
 		model.addAttribute("profile",user_detailsService.user_profile());
 		return "profile";
+	}
+	
+	@RequestMapping(value="/view_types.htm/{type}")
+	public String viewType(Model model, @PathVariable(value = "type") String type){
+		System.out.println(type);
+		User_profile user=user_detailsService.user_profile();
+		model.addAttribute("ownFile",fileService.searchByType(user.getId(), type));
+		return "myfile";
 	}
 }

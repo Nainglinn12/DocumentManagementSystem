@@ -27,7 +27,7 @@
 			<div class="card-body">
 				<h1 class="h4 text-gray-900 mb-4">Sending Message</h1>
 				<p>To</p>
-				<div class="input-group mb-3">
+				<div class="input-group mb-4">
 					<div class="input-group-prepend"></div>
 					<form:select data-placeholder="Select Receiver Name" path="receiver_list"
 						name="receiver_list" class="chosen-select col-sm-12" multiple="multiple">
@@ -40,7 +40,7 @@
 				<p>Title</p>
 				<div class="input-group mb-3">
 					<div class="input-group-prepend"></div>
-					<form:input class="form-control col-sm-12" path="title"
+					<form:input class="form-control col-sm-9" path="title"
 						type="text" />
 				</div>
 				<div class="input-group mb-3">

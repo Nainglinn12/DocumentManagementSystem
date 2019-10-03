@@ -28,22 +28,23 @@ public class ShareFileAnotherDaoImp implements ShareFileAnotherDao {
 		return sessionFactory.getCurrentSession();
 	}
 	@Override
-	public List<Share_files> shareFile(String userName) {
+	public List<Share_files> shareFile(long id) {
 		// TODO Auto-generated method stub
 		Session session=getCurrentSession();
 		Criteria c = session.createCriteria(User_info.class);
-		c.add(Restrictions.eq("name", userName));
+		c.add(Restrictions.eq("id", id));
 		User_info user_info=(User_info) c.uniqueResult();
 		Criteria ca = session.createCriteria(Share_files.class);
 		ca.add(Restrictions.eq("receiver_info.id", user_info.getId()));
 		return ca.list();	
-		}
+		
+	}
 	@Override
-	public List<Share_files> shareFileAnother(String userName) {
+	public List<Share_files> shareFileAnother(long id) {
 		// TODO Auto-generated method stub
          Session session=getCurrentSession();
 		Criteria c = session.createCriteria(User_info.class);
-		c.add(Restrictions.eq("name", userName));
+		c.add(Restrictions.eq("id", id));
 		User_info user_info=(User_info) c.uniqueResult();
 		Criteria ca = session.createCriteria(Share_files.class)
 				.createAlias("file_detail", "f", JoinType.LEFT_OUTER_JOIN)

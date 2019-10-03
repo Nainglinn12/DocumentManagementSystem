@@ -17,10 +17,11 @@
 								<img width="80%" height="80%"
 									src='<c:url value='/resources/icon/image.png'/>' alt="image">
 								<div class="text-gray-800">
+								<input type="hidden" value=>
 									Quantity :${imageList.size()}
 								</div>
 								<div class=" font-weight-bold">
-									Type<a href="#">Image</a>
+									Type<a href='<c:url value="/view_types.htm/${imageList[0].type }"/>'>Image</a>
 								</div>
 							</div>
 						</div>
@@ -35,12 +36,12 @@
 						<div class="row no-gutters align-items-center">
 							<div class="col mr-2">
 								<img width="80%" height="80%"
-									src='<c:url value='/resources/icon/video.jpg'/>' alt="image">
+									src='<c:url value='/resources/icon/audio.jpg'/>' alt="image">
 								<div class="text-gray-800">
 									Quantity :${audioList.size()}
 								</div>
 								<div class=" font-weight-bold">
-									Type<a href="#">Image</a>
+									Type<a href='<c:url value='/view_types.htm/${audioList[0].type}'/>'>Audio</a>
 								</div>
 							</div>
 						</div>
@@ -55,12 +56,12 @@
 						<div class="row no-gutters align-items-center">
 							<div class="col mr-2">
 								<img width="80%" height="80%"
-									src='<c:url value='/resources/icon/audio.jpg'/>' alt="image">
+									src='<c:url value='/resources/icon/video.jpg'/>' alt="image">
 								<div class="text-gray-800">
 									Quantity :${videoList.size()}
 								</div>
 								<div class=" font-weight-bold">
-									Type<a href="#">Audio</a>
+									Type<a href='<c:url value='/view_types.htm/${videoList[0].type}'/>'>Video</a>
 								</div>
 							</div>
 						</div>
@@ -82,7 +83,7 @@
 									Quantity :${pdfList.size()}
 								</div>
 								<div class=" font-weight-bold">
-									Type<a href="#">Pdf</a>
+									Type<a href='<c:url value='/view_types.htm/${pdfList[0].type}'/>'>Pdf</a>
 								</div>
 							</div>
 						</div>
@@ -102,7 +103,7 @@
 									Quantity :${execlList.size()}
 								</div>
 								<div class=" font-weight-bold">
-									Type<a href="#">Excel</a>
+									Type<a href='<c:url value='/view_types.htm/${execlList[0].type}'/>'>Excel</a>
 								</div>
 							</div>
 						</div>
@@ -122,7 +123,7 @@
 									Quantity :${wordList.size()}
 								</div>
 								<div class=" font-weight-bold">
-									Type<a href="#">Word</a>
+									Type<a href='<c:url value='/view_types.htm/${wordList[0].type}'/>'>Word</a>
 								</div>
 							</div>
 						</div>

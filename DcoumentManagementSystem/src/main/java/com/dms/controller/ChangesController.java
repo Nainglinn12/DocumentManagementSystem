@@ -100,7 +100,6 @@ public class ChangesController {
 	public String addpassword(Model model,@ModelAttribute(value = "User_registerDto") User_registerDto User_registerDto) {
 		model.addAttribute("User_registerDto", new User_registerDto());
 		String mymail=User_registerDto.getEmail();
-		
 		boolean result=user_loginService.checkEmail(mymail);
 		String newpass=user_loginService.getNewPassword(mymail);
 		System.out.println(result);
@@ -108,7 +107,7 @@ public class ChangesController {
 			return "forgot_password";
 		}
 		else {
-			appMailer.sendMail(mymail, "Hello", "Your New Password is :"+ newpass);
+			appMailer.sendMail(mymail, "e-Office", "New password of your e-Office account is "+ newpass+".For Your security,don't share your password with anyone else.");
 			return "redirect:/login.htm";
 		}
 

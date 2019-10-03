@@ -18,8 +18,13 @@ public class File_location implements Serializable{
 	private long id;
 	private String location;
 	private String file_type;
-	
-	
+	private String name;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public long getId() {
 		return id;
 	}

@@ -13,4 +13,5 @@ public interface User_infoDao {
 	public User_info search_User(long id);
 	public User_info findByUserName(String name);
 	public void updateUser(User_registerDto user);
+	public List<User_info> searchWithDepartment(long id);
 }

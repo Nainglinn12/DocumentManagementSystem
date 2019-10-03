@@ -6,15 +6,24 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Video view </title>
 </head>
 <body>
-<div class="center">
-      <video controls="controls">
-      ${Name}
-        <source src="<c:url value='${path}' />" type="video/ogg" />
-        <a href="/images/myw3schoolsimage.jpg" download>
-      </video>
-    </div>
+	<a href="<c:url value='/myFile.htm' />" class="btn btn-primary px-4">Back</a>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<div class=" mx-4">
+					<div class=" p-4">
+					<p> ${Name}</p>
+						<video controls="controls">
+							<p> ${Name}</p>
+							<source src="<c:url value='${path}' />" type="video/ogg"  width="100%" height="100%"/>
+						</video>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

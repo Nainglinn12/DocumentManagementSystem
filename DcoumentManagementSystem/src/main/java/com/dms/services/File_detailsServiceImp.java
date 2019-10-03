@@ -169,7 +169,6 @@ public class File_detailsServiceImp implements File_detailsService{
 	public void save_Share_File(Share_fileDto share_file) {
 		Share_files share=new Share_files();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		User_profile user=user_detailService.user_profile();
 		try {
 			DateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd");  
 			String strDate = dFormat.format(new Date());  
@@ -177,14 +176,42 @@ public class File_detailsServiceImp implements File_detailsService{
 		} catch (ParseException e) {
 		e.printStackTrace();
 		}
-		share.getFile_detail().setId(share_file.getFile_id());
 		List<Long> receiverid=share_file.getReceiver();
 		
 		for(Long u : receiverid){
-			
+			for(Long i:share_file.getFileList()) {
 			share.getReceiver_info().setId(u);
+			share.getFile_detail().setId(i);
 			System.out.println(receiverid.size()+""+u+"receiver id");
 			share_fileDao.saveOrUpdateShare_file(share);
+			}
+		}
+		
+	}
+	public void save_Share_FileDepartment(Share_fileDto share_file) {
+		Share_files share=new Share_files();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			DateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd");  
+			String strDate = dFormat.format(new Date());  
+			share.setSend_date( dateFormat.parse(strDate));
+		} catch (ParseException e) {
+		e.printStackTrace();
+		}
+		List<Long> receiverid=new ArrayList<Long>();
+		for(Long i:share_file.getDepartmentList()) {
+			List<User_info> userList=user_infoDao.searchWithDepartment(i);
+			for(User_info u:userList) {
+				receiverid.add(u.getId());
+			}
+		}
+		for(Long u : receiverid){
+			for(Long i:share_file.getFileList()) {
+			share.getReceiver_info().setId(u);
+			share.getFile_detail().setId(i);
+			System.out.println(receiverid.size()+""+u+"receiver id");
+			share_fileDao.saveOrUpdateShare_file(share);
+			}
 		}
 		
 	}
